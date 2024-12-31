@@ -1,0 +1,16 @@
+线性存储：用数组来保存二叉树
+链式存储：用指针来连接左孩子连接下一个节点，连接右孩子连接下一个节点
+
+深度优先搜索：通过递归的方式来实现
+广度优先搜索：层序遍历
+迭代法：非递归的方式
+
+Struct TreeNode{
+	Int val;
+	TreeNode *left;
+	TreeNode *right;
+	TreeNode(int x) :  val(x), left(NULL), right(NULL) {}
+};
+
+中序遍历 非递归 迭代： 用指针来遍历节点，用栈记录访问过的元素，指针为空，弹出栈中元素
+
