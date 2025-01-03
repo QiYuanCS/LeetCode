@@ -12,5 +12,36 @@ Struct TreeNode{
 	TreeNode(int x) :  val(x), left(NULL), right(NULL) {}
 };
 
-中序遍历 非递归 迭代： 用指针来遍历节点，用栈记录访问过的元素，指针为空，弹出栈中元素
+中序遍历 非递归 迭代： 用指针来遍历节点，用栈记录访问过的元素，指针为空，
+
+二叉树 层序遍历:
+import java.util.*;
+
+public class Solution {
+	public List<List<Integer>> levelOrder(TreeNode root){
+		Queue<TreeNode> queue = new LinkedList<>();
+		List<List<Integer>> result = new ArrayList<>();
+
+		if(root != null){
+			queue.offer(root);
+		}
+		while(!queue.isEmpty()){
+			int size = queue.size();
+			List<Integer> vec = new ArrayList<>();
+
+			for(int i = 0; i < size; i++){
+				TreeNode node = queue.poll();
+				vec.add(node.val);
+				if(node.left != NULL){
+					queue.offer(node.left);
+				}
+				if(node.right != NULL){
+					queue.offer(node.right);
+				}
+			}
+			result.add(vec);
+		}
+		return result;	
+	}
+}
 
